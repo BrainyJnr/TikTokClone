@@ -237,84 +237,84 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 20),
 
                   // User social links
+// User social links
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Facebook
-                      GestureDetector(
-                        onTap: () {
-                          final facebookLink =
-                              controllerProfile.userMap["userFacebook"];
-                          if (facebookLink.isEmpty) {
-                            Get.snackbar("Facebook Profile",
-                                "This user has not connected their profile to Facebook yet.");
-                          } else {
-                            launchUserSocialProfile(facebookLink);
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/images/logo/facebook.png",
-                          width: 50,
+                      // Only show social icons if viewing the current logged-in user's profile
+                      if (widget.visitUserID.toString() == currentUserID) ...[
+                        // Facebook
+                        GestureDetector(
+                          onTap: () {
+                            final facebookLink = controllerProfile.userMap["userFacebook"];
+                            if (facebookLink.isEmpty) {
+                              Get.snackbar("Facebook Profile",
+                                  "You have not connected your profile to Facebook yet.");
+                            } else {
+                              launchUserSocialProfile(facebookLink);
+                            }
+                          },
+                          child: Image.asset(
+                            "assets/images/logo/facebook.png",
+                            width: 50,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
+                        const SizedBox(width: 10),
 
-                      // Instagram
-                      GestureDetector(
-                        onTap: () {
-                          final instagramLink =
-                              controllerProfile.userMap["userInstagram"];
-                          if (instagramLink.isEmpty) {
-                            Get.snackbar("Instagram Profile",
-                                "This user has not connected their profile to Instagram yet.");
-                          } else {
-                            launchUserSocialProfile(instagramLink);
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/images/logo/instagram.png",
-                          width: 50,
+                        // Instagram
+                        GestureDetector(
+                          onTap: () {
+                            final instagramLink = controllerProfile.userMap["userInstagram"];
+                            if (instagramLink.isEmpty) {
+                              Get.snackbar("Instagram Profile",
+                                  "You have not connected your profile to Instagram yet.");
+                            } else {
+                              launchUserSocialProfile(instagramLink);
+                            }
+                          },
+                          child: Image.asset(
+                            "assets/images/logo/instagram.png",
+                            width: 50,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
+                        const SizedBox(width: 10),
 
-                      // Twitter
-                      GestureDetector(
-                        onTap: () {
-                          final twitterLink =
-                              controllerProfile.userMap["userTwitter"];
-                          if (twitterLink.isEmpty) {
-                            Get.snackbar("Twitter Profile",
-                                "This user has not connected their profile to Twitter yet.");
-                          } else {
-                            launchUserSocialProfile(twitterLink);
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/images/logo/twitter.png",
-                          width: 50,
+                        // Twitter
+                        GestureDetector(
+                          onTap: () {
+                            final twitterLink = controllerProfile.userMap["userTwitter"];
+                            if (twitterLink.isEmpty) {
+                              Get.snackbar("Twitter Profile",
+                                  "You have not connected your profile to Twitter yet.");
+                            } else {
+                              launchUserSocialProfile(twitterLink);
+                            }
+                          },
+                          child: Image.asset(
+                            "assets/images/logo/twitter.png",
+                            width: 50,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
+                        const SizedBox(width: 10),
 
-                      // YouTube
-                      GestureDetector(
-                        onTap: () {
-                          final youtubeLink =
-                              controllerProfile.userMap["userYoutube"];
-                          if (youtubeLink.isEmpty) {
-                            Get.snackbar("YouTube Profile",
-                                "This user has not connected their profile to YouTube yet.");
-                          } else {
-                            launchUserSocialProfile(youtubeLink);
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/images/logo/youtube.png",
-                          width: 50,
+                        // YouTube
+                        GestureDetector(
+                          onTap: () {
+                            final youtubeLink = controllerProfile.userMap["userYoutube"];
+                            if (youtubeLink.isEmpty) {
+                              Get.snackbar("YouTube Profile",
+                                  "You have not connected your profile to YouTube yet.");
+                            } else {
+                              launchUserSocialProfile(youtubeLink);
+                            }
+                          },
+                          child: Image.asset(
+                            "assets/images/logo/youtube.png",
+                            width: 50,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
+                        const SizedBox(width: 10),
+                      ]
                     ],
                   ),
                   const SizedBox(height: 16),
